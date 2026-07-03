@@ -58,6 +58,17 @@
         margin: 0 auto;
     }
 
+    /* Logo styling */
+    .logo-container {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .logo-container img {
+        width: 300px;
+        height: auto;
+    }
+
     /* Main page content container */
     .main-content {
         padding: 20px;
@@ -128,6 +139,10 @@
             max-width: 100% !important;
             padding: 0 10px !important;
         }
+
+        .logo-container img {
+            width: 200px;
+        }
     }
 
     @media screen and (max-width: 480px) {
@@ -147,6 +162,10 @@
             font-size: 12px;
             padding: 10px 8px !important;
         }
+
+        .logo-container img {
+            width: 150px;
+        }
     }
 
 </style>
@@ -163,16 +182,16 @@
      </div>
 
 
-<div class="w3-container w3-content w3-wide" style="max-width: 600px; max-height: 80%;">
-   <img class="w3-image" src="LOGO.jpg" alt="logo" style="width: 5%; height: auto;">  
-             </div>
+<div class="logo-container">
+   <img class="w3-image" src="LOGO.jpg" alt="logo">  
+</div>
 
 
       <div class="right-box">
          <h1 class="w3-center w3-animate-top w3-text-blue">welcome.....</h1>
 <h2 class="w3-center w3-animate-bottom w3-text-green">to our website!</h2>
 
-<p><i class="fa fa-spinner w3-spin" style="font-size: 64px;"></i></p>
+<p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p>
 
 <h3 class="w3-center w3-animate-left w3-text-purple">We are here to help you plan your next adventure!</h3>
 
