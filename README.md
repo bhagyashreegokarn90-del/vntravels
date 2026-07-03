@@ -1,6 +1,6 @@
 # VN Travels
 
-A modern travel website showcasing Vietnam tours and travel packages.
+A modern travel website showcasing tours and travel packages.
 
 ## Features
 
