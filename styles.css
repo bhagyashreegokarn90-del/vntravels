@@ -1,6 +1,7 @@
 /* styles.css - VN Travels custom fixes */
 :root {
   --nav-height: 56px;
+  --sidebar-width: 260px;
 }
 
 /* Ensure the destinations title isn't covered by fixed/top nav on small screens */
@@ -21,5 +22,28 @@
 @media screen and (max-width: 480px) {
   :root {
     --nav-height: 48px;
+  }
+}
+
+/* Desktop: fixed right sidebar */
+@media screen and (min-width: 801px) {
+  .right-box {
+    position: fixed;
+    right: 0;
+    top: var(--nav-height);
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
+    box-shadow: -2px 0 6px rgba(0,0,0,0.08);
+    background: #f4f4f4;
+    padding: 16px;
+    box-sizing: border-box;
+    z-index: 999;
+  }
+
+  /* push main content left so it doesn't go under sidebar */
+  .main-content,
+  .w3-content {
+    margin-right: calc(var(--sidebar-width) + 40px);
   }
 }
