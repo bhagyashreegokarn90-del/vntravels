@@ -189,6 +189,9 @@
 
 
       <div class="right-box">
+        <button class="sidebar-toggle" aria-label="Toggle sidebar" aria-pressed="false" title="Toggle sidebar">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </button>
          <h1 class="w3-center w3-animate-top w3-text-blue">welcome.....</h1>
 <h2 class="w3-center w3-animate-bottom w3-text-green">to our website!</h2>
 
@@ -232,6 +235,60 @@ function carousel() {
 <div class="w3-content w3-wide" style="max-width: 1000px; max-height: 50%; width: 100%;">
       
     
+
+<script>
+(function () {
+  var STORAGE_KEY = 'vn_sidebar_collapsed';
+
+  function updateIcon(btn, collapsed) {
+    var icon = btn.querySelector('i');
+    if (!icon) return;
+    icon.classList.toggle('fa-chevron-right', !collapsed);
+    icon.classList.toggle('fa-chevron-left', collapsed);
+  }
+
+  function setCollapsed(collapsed) {
+    if (collapsed) {
+      document.body.classList.add('sidebar-collapsed');
+      localStorage.setItem(STORAGE_KEY, '1');
+    } else {
+      document.body.classList.remove('sidebar-collapsed');
+      localStorage.removeItem(STORAGE_KEY);
+    }
+
+    // update all toggles on the page
+    document.querySelectorAll('.sidebar-toggle').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', collapsed ? 'true' : 'false');
+      updateIcon(btn, collapsed);
+    });
+  }
+
+  function initToggle() {
+    // restore persisted state
+    var persisted = localStorage.getItem(STORAGE_KEY) === '1';
+    if (persisted) setCollapsed(true);
+
+    document.querySelectorAll('.sidebar-toggle').forEach(function (btn) {
+      // set initial icon/aria
+      var isPressed = btn.getAttribute('aria-pressed') === 'true';
+      updateIcon(btn, isPressed);
+
+      btn.addEventListener('click', function () {
+        var pressed = btn.getAttribute('aria-pressed') === 'true';
+        setCollapsed(!pressed);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initToggle);
+  } else {
+    initToggle();
+  }
+})();
+</script>
+
+</div>
 
 </body>
 </html>
