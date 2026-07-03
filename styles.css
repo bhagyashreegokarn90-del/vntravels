@@ -1,0 +1,25 @@
+/* styles.css - VN Travels custom fixes */
+:root {
+  --nav-height: 56px;
+}
+
+/* Ensure the destinations title isn't covered by fixed/top nav on small screens */
+@media screen and (max-width: 800px) {
+  .destinations-title {
+    margin-top: var(--nav-height);
+    position: relative;
+    z-index: 9999;
+  }
+
+  /* Global fallback: push page content below the top nav */
+  body {
+    padding-top: var(--nav-height);
+  }
+}
+
+/* Small-screen adjustments for very narrow devices */
+@media screen and (max-width: 480px) {
+  :root {
+    --nav-height: 48px;
+  }
+}
