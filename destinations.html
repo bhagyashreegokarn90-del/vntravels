@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-
+ 
     *{
         box-sizing: border-box;
     }
@@ -52,14 +52,31 @@
         margin: 0;
     }
 
-    /* The vertical right box */
+    /* Container for destinations and right-box - flex layout */
+    .content-wrapper {
+        display: flex;
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    /* Destinations content - takes center space */
+    .destinations-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* The vertical right box - positioned on the right */
     .right-box {
-        position: right;
-        width: 100%;
+        width: 200px;
         background-color: #f4f4f4;
         border-left: 2px solid #ccc;
         padding: 15px;
         box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     /* Destinations title styling */
@@ -72,6 +89,7 @@
         color: #333;
         z-index: 10;
         position: relative;
+        width: 100%;
     }
 
     /* width */
@@ -107,12 +125,17 @@
             padding: 15px;
         }
 
+        .content-wrapper {
+            flex-direction: column;
+        }
+
         .right-box {
+            width: 100%;
             position: relative;
             height: auto;
-            width: 100%;
             margin: 0;
             border: none;
+            border-top: 2px solid #ccc;
         }
 
         .w3-top {
@@ -167,67 +190,73 @@
 
 <h1 class="w3-panel w3-orange w3-padding-32 destinations-title">DESTINATIONS</h1>
 
-<div class="right-box">
-    <h1 class="w3-center w3-animate-top w3-text-blue">YOUR TRAVEL PARTNER!...</h1>
-    
-    <div class="w3-container w3-center w3-animate-opacity">
-      <img src="bus (1).png" alt="bus" style="width: 60%; height: auto;">
+<div class="content-wrapper">
+    <!-- Right box - vertical on the right side -->
+    <div class="right-box">
+        <h3 class="w3-center w3-animate-top w3-text-blue">YOUR TRAVEL PARTNER!...</h3>
+        
+        <div class="w3-container w3-center w3-animate-opacity">
+          <img src="bus (1).png" alt="bus" style="width: 100%; height: auto;">
+        </div>
+
+        <div class="w3-container w3-center w3-animate-opacity">
+          <img src="bus.png" alt="bus" style="width: 100%; height: auto;">      
+        </div>
+
+        <div class="w3-container w3-center w3-animate-opacity">
+          <img src="50447.png" alt="car" style="width: 100%; height: auto;">      
+        </div>
+
+        <div class="w3-container w3-center w3-animate-opacity">
+          <img src="50459.jpg" alt="car" style="width: 100%; height: auto;">    
+        </div>
+
+        <div class="w3-container w3-center w3-animate-opacity">
+          <img src="50445.jpg" alt="car" style="width: 100%; height: auto;">
+        </div>
     </div>
 
-    <div class="w3-container w3-center w3-animate-opacity">
-      <img src="bus.png" alt="bus" style="width: 60%; height: auto;">      
+    <!-- Destinations content - centered in the middle -->
+    <div class="destinations-content">
+        <div class="w3-container w3-content w3-wide" style="max-width: 1000px;">
+            <br>
+            <p><span class="w3-tag">GAYA</span></p>
+            <img src="gaya.jpg" class="w3-border w3-center" style="width: 100%; max-width: 400px; height: auto;"><br>
+            <br>
+            <br>
+
+            <p><span class="w3-tag">AYODHYA</span></p>
+            <img src="ram-darbar.jpg" class="w3-border w3-center" style="width: 100%; max-width: 400px; height: auto;"><br>
+            <br>
+            <br>
+
+            <p><span class="w3-tag">CHITRAKOOT</span></p>
+            <img src="chitra - Copy.jpg" class="w3-border w3-center" style="width: 100%; max-width: 400px; height: auto;"><br>
+            <br>
+            <br>
+
+            <p><span class="w3-tag">KASHI</span></p>
+            <img src="kashi.jpg" class="w3-border w3-center" style="width: 100%; max-width: 400px; height: auto;"><br>
+            <br>
+            <br>
+
+            <p><span class="w3-tag">PRAYAGRAJ</span></p>
+            <img src="PRAYAG.jpg" class="w3-border w3-center" style="width: 100%; max-width: 400px; height: auto;"><br>
+            <br>
+            <br>
+
+            <p><span class="w3-tag">PATNA</span></p>
+            <img src="PATNA.jpg" class="w3-border w3-center" style="width: 100%; max-width: 400px; height: auto;"><br>
+            <br>
+            <br>
+
+            <p><span class="w3-tag">NEPAL</span></p>
+            <img src="nepal1.jpg" class="w3-border w3-center" style="width: 100%; max-width: 400px; height: auto;"><br>
+            <img src="nepal2.jpg" class="w3-border" style="width: 100%; max-width: 600px; height: auto;"><br>
+            <br>
+            <br>
+        </div>
     </div>
-
-    <div class="w3-container w3-center w3-animate-opacity">
-      <img src="50447.png" alt="car" style="width: 60%; height: auto;">      
-    </div>
-
-    <div class="w3-container w3-center w3-animate-opacity">
-      <img src="50459.jpg" alt="car" style="width: 60%; height: auto;">    
-    </div>
-
-    <div class="w3-container w3-center w3-animate-opacity">
-      <img src="50445.jpg" alt="car" style="width: 60%; height: auto;">
-    </div>
-</div>
-
-<div class="w3-container w3-content w3-wide" style="max-width: 1000px; max-height: 50%;">
-    <br>
-    <p><span class="w3-tag">GAYA</span></p>
-    <img src="gaya.jpg" class="w3-border w3-center" style="width: 100%; max-width: 60px; height: auto;"><br>
-    <br>
-    <br>
-
-    <p><span class="w3-tag">AYODHYA</span></p>
-    <img src="ram-darbar.jpg" class="w3-border w3-center" style="width: 100%; max-width: 60px; height: auto;"><br>
-    <br>
-    <br>
-
-    <p><span class="w3-tag">CHITRAKOOT</span></p>
-    <img src="chitra - Copy.jpg" class="w3-border w3-center" style="width: 100%; max-width: 60px; height: auto;"><br>
-    <br>
-    <br>
-
-    <p><span class="w3-tag">KASHI</span></p>
-    <img src="kashi.jpg" class="w3-border w3-center" style="width: 100%; max-width: 60px; height: auto;"><br>
-    <br>
-    <br>
-
-    <p><span class="w3-tag">PRAYAGRAJ</span></p>
-    <img src="PRAYAG.jpg" class="w3-border w3-center" style="width: 100%; max-width: 60px; height: auto;"><br>
-    <br>
-    <br>
-
-    <p><span class="w3-tag">PATNA</span></p>
-    <img src="PATNA.jpg" class="w3-border w3-center" style="width: 100%; max-width: 60px; height: auto;"><br>
-    <br>
-    <br>
-
-    <p><span class="w3-tag">NEPAL</span></p>
-    <img src="nepal1.jpg" class="w3-border w3-center" style="width: 100%; max-width: 60px; height: auto;"><br>
-    <img src="nepal2.jpg" class="w3-border" style="width: 100%; max-width: 600px; height: auto;"><br>
-    <br>
-    <br>
 </div>
 
 </body>
