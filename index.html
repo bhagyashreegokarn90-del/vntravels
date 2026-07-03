@@ -30,6 +30,7 @@
         display: block;
     }
 
+    /* legacy column styles (not used with flex layout below) */
     .left {
         padding: 20px;
         width: 20%;
@@ -70,21 +71,45 @@
         height: auto;
     }
 
-    /* Main page content container */
-    .main-content {
+    /* Page layout: main content + right sidebar */
+    .page {
+        display: flex;
+        align-items: flex-start; /* align tops */
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
         padding: 20px;
-        margin: 0;
     }
 
-    /* The vertical right box */
+    /* main takes remaining space */
+    .main-content {
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: 20px;
+        background-color: rgba(64, 19, 61, 0.84);
+    }
+
+    /* right sidebar fixed width and always on the right */
     .right-box {
-        position: relative;
-        width: 100%;
+        width: 320px;        /* choose desired width */
+        flex: 0 0 320px;    /* don't grow or shrink */
         background-color: #f4f4f4;
         border-left: 2px solid #ccc;
         padding: 15px;
         box-sizing: border-box;
+        position: relative;
     }
+
+    /* If you prefer the sidebar fixed to the viewport, uncomment below and keep .content margin-right */
+    /*
+    .right-box {
+      position: fixed;
+      right: 20px;
+      top: 120px;
+      width: 300px;
+    }
+    .main-content { margin-right: 340px; }
+    */
 
     /* width */
     ::-webkit-scrollbar {
@@ -116,11 +141,8 @@
 
     /* Mobile responsiveness */
     @media screen and (max-width: 800px) {
-        .left, main, .right {
-            width: 100%;
-            display: block;
-            padding: 15px;
-        }
+        .page { flex-direction: column; padding: 10px; }
+        .right-box, .main-content { width: 100%; flex: none; padding: 15px; }
 
         .main-content {
             margin: 0;
@@ -187,108 +209,109 @@
    <img class="w3-image" src="LOGO.jpg" alt="logo">  
 </div>
 
-
-      <div class="right-box">
-        <button class="sidebar-toggle" aria-label="Toggle sidebar" aria-pressed="false" title="Toggle sidebar">
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </button>
-         <h1 class="w3-center w3-animate-top w3-text-blue">welcome.....</h1>
-<h2 class="w3-center w3-animate-bottom w3-text-green">to our website!</h2>
-
-<p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p>
-
-<h3 class="w3-center w3-animate-left w3-text-purple">We are here to help you plan your next adventure!</h3>
-
-<div class="w3-container w3-content w3-wide" style="max-width: 1000px; max-height: 100%; width: 100%;">
- <img class="slides" src="50451.jpg" style="width: 100%; height: auto;">
-   <img class="slides" src="50459.jpg" style="width: 100%; height: auto;">
-   <img class="slides" src="50449.jpg" style="width: 100%; height: auto;">
-   <img class="slides" src="bus.png" style="width: 100%; height: auto;">
-   </div>
-
-<script>
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("slides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 2000); // Change image every 2 seconds
-}
-</script>
-</div>
-
-
-<div class="main-content">
+<!-- PAGE: main content on the left, sidebar on the right -->
+<div class="page">
+  <main class="main-content">
     <h1 class="w3-center w3-animate-top w3-text-blue"><marquee><span style="font-family: Cursive; font-size: 24px;">EXPLORE NEW DESTINATIONS WITH US</span></marquee></h1>
-<h3 class="w3-center w3-animate-left w3-text-green modern-blink">DISCOVER THE WORLD WITH US</h3>
-</div>
+    <h3 class="w3-center w3-animate-left w3-text-green modern-blink">DISCOVER THE WORLD WITH US</h3>
 
+    <div class="w3-content w3-wide" style="max-width: 1000px; max-height: 50%; width: 100%;">
+      <!-- additional main content (keeps images/statements) -->
+      <p class="w3-center w3-text-blue">Welcome to VN Travels. We help you plan your trips and explore top destinations.</p>
+    </div>
 
+    <script>
+    (function () {
+      var STORAGE_KEY = 'vn_sidebar_collapsed';
 
-<div class="w3-content w3-wide" style="max-width: 1000px; max-height: 50%; width: 100%;">
-      
-    
+      function updateIcon(btn, collapsed) {
+        var icon = btn.querySelector('i');
+        if (!icon) return;
+        icon.classList.toggle('fa-chevron-right', !collapsed);
+        icon.classList.toggle('fa-chevron-left', collapsed);
+      }
 
-<script>
-(function () {
-  var STORAGE_KEY = 'vn_sidebar_collapsed';
+      function setCollapsed(collapsed) {
+        if (collapsed) {
+          document.body.classList.add('sidebar-collapsed');
+          localStorage.setItem(STORAGE_KEY, '1');
+        } else {
+          document.body.classList.remove('sidebar-collapsed');
+          localStorage.removeItem(STORAGE_KEY);
+        }
 
-  function updateIcon(btn, collapsed) {
-    var icon = btn.querySelector('i');
-    if (!icon) return;
-    icon.classList.toggle('fa-chevron-right', !collapsed);
-    icon.classList.toggle('fa-chevron-left', collapsed);
-  }
+        // update all toggles on the page
+        document.querySelectorAll('.sidebar-toggle').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', collapsed ? 'true' : 'false');
+          updateIcon(btn, collapsed);
+        });
+      }
 
-  function setCollapsed(collapsed) {
-    if (collapsed) {
-      document.body.classList.add('sidebar-collapsed');
-      localStorage.setItem(STORAGE_KEY, '1');
-    } else {
-      document.body.classList.remove('sidebar-collapsed');
-      localStorage.removeItem(STORAGE_KEY);
+      function initToggle() {
+        // restore persisted state
+        var persisted = localStorage.getItem(STORAGE_KEY) === '1';
+        if (persisted) setCollapsed(true);
+
+        document.querySelectorAll('.sidebar-toggle').forEach(function (btn) {
+          // set initial icon/aria
+          var isPressed = btn.getAttribute('aria-pressed') === 'true';
+          updateIcon(btn, isPressed);
+
+          btn.addEventListener('click', function () {
+            var pressed = btn.getAttribute('aria-pressed') === 'true';
+            setCollapsed(!pressed);
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initToggle);
+      } else {
+        initToggle();
+      }
+    })();
+    </script>
+
+  </main>
+
+  <aside class="right-box">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar" aria-pressed="false" title="Toggle sidebar">
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </button>
+    <h1 class="w3-center w3-animate-top w3-text-blue">welcome.....</h1>
+    <h2 class="w3-center w3-animate-bottom w3-text-green">to our website!</h2>
+
+    <p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p>
+
+    <h3 class="w3-center w3-animate-left w3-text-purple">We are here to help you plan your next adventure!</h3>
+
+    <div class="w3-container w3-content w3-wide" style="max-width: 1000px; max-height: 100%; width: 100%;">
+      <img class="slides" src="50451.jpg" style="width: 100%; height: auto; display: none;">
+      <img class="slides" src="50459.jpg" style="width: 100%; height: auto; display: none;">
+      <img class="slides" src="50449.jpg" style="width: 100%; height: auto; display: none;">
+      <img class="slides" src="bus.png" style="width: 100%; height: auto; display: none;">
+    </div>
+
+    <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("slides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}    
+      if (x[myIndex-1]) x[myIndex-1].style.display = "block";  
+      setTimeout(carousel, 2000); // Change image every 2 seconds
     }
+    </script>
 
-    // update all toggles on the page
-    document.querySelectorAll('.sidebar-toggle').forEach(function (btn) {
-      btn.setAttribute('aria-pressed', collapsed ? 'true' : 'false');
-      updateIcon(btn, collapsed);
-    });
-  }
-
-  function initToggle() {
-    // restore persisted state
-    var persisted = localStorage.getItem(STORAGE_KEY) === '1';
-    if (persisted) setCollapsed(true);
-
-    document.querySelectorAll('.sidebar-toggle').forEach(function (btn) {
-      // set initial icon/aria
-      var isPressed = btn.getAttribute('aria-pressed') === 'true';
-      updateIcon(btn, isPressed);
-
-      btn.addEventListener('click', function () {
-        var pressed = btn.getAttribute('aria-pressed') === 'true';
-        setCollapsed(!pressed);
-      });
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initToggle);
-  } else {
-    initToggle();
-  }
-})();
-</script>
-
+  </aside>
 </div>
+
 
 </body>
 </html>
