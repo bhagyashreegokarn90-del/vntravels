@@ -1,164 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="https:\\www.w3schools.com\w3css\5\w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
     *{
-        box-sizing:border-box;
+        box-sizing: border-box;
     }
 
-
-    body{
-          background-color:rgba(236, 183, 232, 0.84);
+    body {
+        background-color: rgba(236, 183, 232, 0.84);
+        margin: 0;
+        padding: 0;
     }
 
-     
     .left {
-        padding:20px;
-        float:left;
-        width:20%; /* The width is 20%, by default */
-     }
-
-
-     main {
-        background-color:rgba(255, 253, 255, 0.84);
-        padding:20px;
-        float:left;
-        width:60%; /* The width is 60%, by default */
-     }
-
-     .right{
-        background-color:lightblue;
-        padding:20px;
-        float:left;
-        width:20%; /* The width is 20%, by default */
-     }
-
-     @media screen and (max-width: 800px) {
-  .left, .main, .right {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-}
-    .banner{
-        width:1024px;
+        padding: 20px;
+        width: 20%;
+        display: inline-block;
+        vertical-align: top;
     }
 
-  /* Main page content container */
-        .main-content {
-            margin-right: 220px; /* Prevents text from hiding behind the box */
-            padding: 20px;
-        }
+    main {
+        background-color: rgba(255, 253, 255, 0.84);
+        padding: 20px;
+        width: 60%;
+        display: inline-block;
+        vertical-align: top;
+    }
 
-        /* The vertical right box */
-        .right-box {
-            position: fixed;     /* Fixes the position relative to the viewport */
-            right: 0;            /* Aligns it to the right edge */
-            top: 0;              /* Aligns it to the top edge */
-            width: 200px;        /* Sets the width of the vertical box */
-            height: 100vh;       /* Spans 100% of the viewport height */
-            background-color: #f4f4f4;
-            border-left: 2px solid #ccc;
+    .right {
+        background-color: lightblue;
+        padding: 20px;
+        width: 20%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .banner {
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    /* Main page content container */
+    .main-content {
+        padding: 20px;
+        margin: 0;
+    }
+
+    /* The vertical right box */
+    .right-box {
+        position: relative;
+        width: 100%;
+        background-color: #f4f4f4;
+        border-left: 2px solid #ccc;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    /* Destinations title styling */
+    .destinations-title {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 2.5em;
+        margin: 20px 0;
+        padding: 30px 10px;
+        color: #333;
+        z-index: 10;
+        position: relative;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+
+    /* Mobile responsiveness */
+    @media screen and (max-width: 800px) {
+        .left, main, .right {
+            width: 100%;
+            display: block;
             padding: 15px;
-            box-sizing: border-box; /* Includes padding in width/height calculation */
         }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
+        .main-content {
+            margin: 0;
+            padding: 15px;
+        }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
+        .right-box {
+            position: relative;
+            height: auto;
+            width: 100%;
+            margin: 0;
+            border: none;
+        }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
+        .w3-top {
+            position: relative !important;
+        }
+
+        .w3-container, .w3-content, .w3-wide {
+            max-width: 100% !important;
+            padding: 0 10px !important;
+        }
+
+        .destinations-title {
+            font-size: 1.8em;
+            padding: 20px 10px;
+            margin: 10px 0;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        body {
+            font-size: 14px;
+        }
+
+        .left, main, .right {
+            padding: 10px;
+        }
+
+        h1, h2, h3 {
+            font-size: 1.2em;
+        }
+
+        .w3-bar-item {
+            font-size: 12px;
+            padding: 10px 8px !important;
+        }
+
+        .destinations-title {
+            font-size: 1.4em;
+            padding: 15px 8px;
+            margin: 5px 0;
+        }
+    }
 
 </style>
 
 <body>
-<div  id="home" class="w3-container">
-  <div class="w3-top w3-bar w3-black">
-    <a href="index.html" class="w3-bar-item w3-button">HOME</a>
-    </div>
-    </div>
-   
+<div id="home" class="w3-container">
+   <div class="w3-top w3-bar w3-black">
+     <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+     </div>
+</div>
 
-    <div class="w3-panel w3-orange w3-padding-32">
-            <h1 style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">DESTINATIONS</h1>
-        </div>
+<h1 class="w3-panel w3-orange w3-padding-32 destinations-title">DESTINATIONS</h1>
 
 <div class="right-box">
-        <h1 class="w3-center w3-animate-top w3-text-blue">YOUR TRAVEL PARTNER!...</h1>
-        
-<div class="w3-container w3-center w3-animate-opacity">
-  <img src="bus (1).png" alt="bus" style="width:100%">
-  </div>
+    <h1 class="w3-center w3-animate-top w3-text-blue">YOUR TRAVEL PARTNER!...</h1>
+    
+    <div class="w3-container w3-center w3-animate-opacity">
+      <img src="bus (1).png" alt="bus" style="width: 100%; height: auto;">
+    </div>
 
-  <div class="w3-container w3-center w3-animate-opacity">
-  <img src="bus.png" alt="bus" style="width:100%">      
+    <div class="w3-container w3-center w3-animate-opacity">
+      <img src="bus.png" alt="bus" style="width: 100%; height: auto;">      
+    </div>
+
+    <div class="w3-container w3-center w3-animate-opacity">
+      <img src="50447.png" alt="car" style="width: 100%; height: auto;">      
+    </div>
+
+    <div class="w3-container w3-center w3-animate-opacity">
+      <img src="50459.jpg" alt="car" style="width: 100%; height: auto;">    
+    </div>
+
+    <div class="w3-container w3-center w3-animate-opacity">
+      <img src="50445.jpg" alt="car" style="width: 100%; height: auto;">
+    </div>
 </div>
 
-<div class="w3-container w3-center w3-animate-opacity">
-  <img src="50447.png" alt="car" style="width:100%">      
+<div class="w3-container w3-content w3-wide" style="max-width: 1000px; max-height: 50%;">
+    <br>
+    <p><span class="w3-tag">GAYA</span></p>
+    <img src="gaya.jpg" class="w3-border w3-center" style="width: 100%; max-width: 600px; height: auto;"><br>
+    <br>
+    <br>
+
+    <p><span class="w3-tag">AYODHYA</span></p>
+    <img src="ram-darbar.jpg" class="w3-border w3-center" style="width: 100%; max-width: 600px; height: auto;"><br>
+    <br>
+    <br>
+
+    <p><span class="w3-tag">CHITRAKOOT</span></p>
+    <img src="chitra - Copy.jpg" class="w3-border w3-center" style="width: 100%; max-width: 600px; height: auto;"><br>
+    <br>
+    <br>
+
+    <p><span class="w3-tag">KASHI</span></p>
+    <img src="kashi.jpg" class="w3-border w3-center" style="width: 100%; max-width: 600px; height: auto;"><br>
+    <br>
+    <br>
+
+    <p><span class="w3-tag">PRAYAGRAJ</span></p>
+    <img src="PRAYAG.jpg" class="w3-border w3-center" style="width: 100%; max-width: 600px; height: auto;"><br>
+    <br>
+    <br>
+
+    <p><span class="w3-tag">PATNA</span></p>
+    <img src="PATNA.jpg" class="w3-border w3-center" style="width: 100%; max-width: 600px; height: auto;"><br>
+    <br>
+    <br>
+
+    <p><span class="w3-tag">NEPAL</span></p>
+    <img src="nepal1.jpg" class="w3-border w3-center" style="width: 100%; max-width: 600px; height: auto;"><br>
+    <img src="nepal2.jpg" class="w3-border" style="width: 100%; max-width: 600px; height: auto;"><br>
+    <br>
+    <br>
 </div>
 
-<div class="w3-container w3-center w3-animate-opacity">
-  <img src="50459.jpg" alt="car" style="width:100%">    
-</div>
-
-<div class="w3-container w3-center w3-animate-opacity">
-  <img src="50445.jpg" alt="car" style="width:100%">
-</div>
-</div>
-
-
-<div class="w3-container w3-content w3-wide" style="max-width: 1000px; max-height:50%;">
-<br>
-  <p><span class="w3-tag">GAYA</span></p>
- <img  src="gaya.jpg" class="w3-border w3-center" style="width:50%"><br>
-<br>
-<br>
-
-<p> <span class="w3-tag">AYODHYA</span></p>
-  <img  src="ram-darbar.jpg"  class="w3-border w3-center"   style="width:50%"><br>
-<br>
-<br>
-
-<p> <span class="w3-tag">CHITRAKOOT</span></p>
-  <img  src="chitra - Copy.jpg" class="w3-border w3-center" style="width:50%"><br>
-
-<br>
-<br>
-  <p> <span class="w3-tag">KASHI</span></p>
-  <img  src="kashi.jpg" class="w3-border w3-center" style="width:50%"><br>
-<br>
-<br>
-  <p> <span class="w3-tag">PRAYAGRAJ</span></p>
-  <img  src="PRAYAG.jpg" class="w3-border w3-center" style="width:50%"><br>
-<br>
-<br>
-  <p> <span class="w3-tag">PATNA</span></p>
-   <img src="PATNA.jpg" class="w3-border w3-center" style="width:50%"><br>
-<br>
-<br>
-  <p> <span class="w3-tag">NEPAL</span></p>
-<img src="nepal1.jpg" class="w3-border w3-center" style="width:30%"><br>
-<img src="nepal2.jpg" class="w3-border" style="width:30%"><br>
-<br>
-<br>
-
-</div>
-    </body>
+</body>
 </html>
