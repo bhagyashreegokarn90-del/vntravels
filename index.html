@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https:\\www.w3schools.com\w3css\5\w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+    *{
+        box-sizing:border-box;
+    }
+
+
+    body{
+          background-color:rgba(64, 19, 61, 0.84);
+    }
+
+     
+    .left {
+        padding:20px;
+        float:left;
+        width:20%; /* The width is 20%, by default */
+     }
+
+
+     main {
+        background-color:rgba(64, 19, 61, 0.84);
+        padding:20px;
+        float:left;
+        width:60%; /* The width is 60%, by default */
+     }
+
+     .right{
+        background-color:lightblue;
+        padding:20px;
+        float:left;
+        width:20%; /* The width is 20%, by default */
+     }
+
+     @media screen and (max-width: 800px) {
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+    .banner{
+        width:1024px;
+    }
+
+  /* Main page content container */
+        .main-content {
+            margin-right: 220px; /* Prevents text from hiding behind the box */
+            padding: 20px;
+        }
+
+        /* The vertical right box */
+        .right-box {
+            position: fixed;     /* Fixes the position relative to the viewport */
+            right: 0;            /* Aligns it to the right edge */
+            top: 0;              /* Aligns it to the top edge */
+            width: 200px;        /* Sets the width of the vertical box */
+            height: 100vh;       /* Spans 100% of the viewport height */
+            background-color: #f4f4f4;
+            border-left: 2px solid #ccc;
+            padding: 15px;
+            box-sizing: border-box; /* Includes padding in width/height calculation */
+        }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+ .modern-blink {
+            animation: flash-animation 1s step-start infinite;
+        }
+
+        @keyframes flash-animation {
+            50% { opacity: 0; }
+        }
+
+</style>
+
+<body>
+
+ <div  id="home" class="w3-container">
+  <div class="w3-top w3-bar w3-black">
+    <a href="" class="w3-bar-item w3-button">HOME</a>
+    <a href="" class="w3-bar-item w3-button">ABOUT US</a>
+     <a href="" class="w3-bar-item w3-button">CONTACT</a>
+    <a href="" class="w3-bar-item w3-button">DESTINATIONS</a>
+    </div>
+    </div>
+
+
+<div class="w3-container w3-content w3-wide" style="max-width :600px;max-height:80%;">
+  <img class="w3-image" src="C:\Users\Dell\OneDrive\Documents\BHAGYA\vntravels\photos\LOGO.jpg" alt="logo" wide="5%" background-color="blue"; height="5%">  
+            </div>
+
+
+     <div class="right-box">
+        <h1 class="w3-center w3-animate-top w3-text-blue">welcome.....</h1>
+<h2 class="w3-center w3-animate-bottom w3-text-green">to our website!</h2>
+
+<p><i class="fa fa-spinner w3-spin" style="font-size:64px"></i></p>
+
+<h3 class="w3-center w3-animate-left w3-text-purple">We are here to help you plan your next adventure!</h3>
+
+<div class="w3-container w3-content w3-wide" style="max-width:1000px; max-height:100%;">
+ <img class="slides" src="C:\Users\Dell\OneDrive\Documents\BHAGYA\vntravels\photos\50451.jpg" style="width:100%">
+  <img class="slides" src="C:\Users\Dell\OneDrive\Documents\BHAGYA\vntravels\photos\50459.jpg" style="width:100%">
+  <img class="slides" src="C:\Users\Dell\OneDrive\Documents\BHAGYA\vntravels\photos\50449.jpg" style="width:100%">
+  <img class="slides" src="C:\Users\Dell\OneDrive\Documents\BHAGYA\vntravels\photos\bus.png" style="width:100%">
+  </div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("slides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+</div>
+
+
+<div class="main-content">
+    <h1 class="w3-center w3-animate-top w3-text-blue"><marquee><span style="font-family: Cursive; font-size: 24px;">EXPLORE NEW DESTINATIONS WITH US</span></marquee></h1>
+<h3 class="w3-center w3-animate-left w3-text-green modern-blink">DISCOVER THE WORLD WITH US</h3>
+</div>
+
+
+
+<div class="w3-content w3-wide" style="max-width:1000px; max-height:50%;">
+      
+    
+
+</body>
+</html>
