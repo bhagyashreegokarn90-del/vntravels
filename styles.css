@@ -1,7 +1,11 @@
-/* styles.css - VN Travels custom fixes */
+/* styles.css - VN Travels custom fixes (updated)
+   - Sidebar width changed to 220px
+   - Sidebar uses position: sticky on desktop
+   - Sidebar can be collapsed with body.sidebar-collapsed
+*/
 :root {
   --nav-height: 56px;
-  --sidebar-width: 260px;
+  --sidebar-width: 220px; /* updated width */
 }
 
 /* Ensure the destinations title isn't covered by fixed/top nav on small screens */
@@ -25,11 +29,12 @@
   }
 }
 
-/* Desktop: fixed right sidebar */
+/* Desktop: sticky right sidebar (in-flow) */
 @media screen and (min-width: 801px) {
   .right-box {
-    position: fixed;
-    right: 0;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    right: 0; /* not used for sticky, kept for fallback */
     top: var(--nav-height);
     width: var(--sidebar-width);
     height: calc(100vh - var(--nav-height));
@@ -39,11 +44,65 @@
     padding: 16px;
     box-sizing: border-box;
     z-index: 999;
+    transition: width 240ms ease, padding 240ms ease;
   }
 
   /* push main content left so it doesn't go under sidebar */
   .main-content,
   .w3-content {
     margin-right: calc(var(--sidebar-width) + 40px);
+    transition: margin-right 240ms ease;
+  }
+
+  /* Collapsed sidebar state */
+  body.sidebar-collapsed .right-box {
+    width: 0 !important;
+    padding: 0 !important;
+    border-left: none !important;
+    box-shadow: none !important;
+    overflow: hidden;
+  }
+
+  body.sidebar-collapsed .main-content,
+  body.sidebar-collapsed .w3-content {
+    margin-right: 40px; /* small margin when sidebar collapsed */
+  }
+
+  /* Toggle button positioned at the left edge of the sidebar */
+  .sidebar-toggle {
+    position: absolute;
+    left: -40px;
+    top: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: white;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: transform 160ms ease;
+    z-index: 1000;
+  }
+
+  .sidebar-toggle:focus {
+    outline: 2px solid #3399ff;
+  }
+
+  /* When collapsed, show a different icon direction */
+  body.sidebar-collapsed .sidebar-toggle {
+    transform: translateX(6px);
+  }
+}
+
+/* Small screens: keep stacked layout and visible toggle inside flow */
+@media screen and (max-width: 800px) {
+  .sidebar-toggle {
+    position: relative;
+    left: 0;
+    margin-bottom: 8px;
   }
 }
