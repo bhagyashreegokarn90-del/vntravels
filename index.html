@@ -88,10 +88,11 @@
         min-width: 0;
         padding: 20px;
         background-color: rgba(64, 19, 61, 0.84);
-        margin-right: auto;
+        /* reserve space equal to sidebar width so content doesn't go under it */
+        margin-right: 320px;
     }
 
-    /* right sidebar fixed width and positioned to extreme right */
+    /* right sidebar fixed width and positioned flush to the viewport right edge */
     .right-box {
         width: 320px;        /* choose desired width */
         flex: 0 0 320px;    /* don't grow or shrink */
@@ -100,21 +101,15 @@
         padding: 15px;
         box-sizing: border-box;
         position: fixed;
-        right: 0;
-        top: 200px;
-        height: calc(100vh - 200px);
+        right: 0;            /* flush to the right edge */
+        top: 0;              /* start at top of viewport (adjust if your top nav is fixed and you want it below) */
+        height: 100vh;      /* full viewport height */
         overflow-y: auto;
+        z-index: 9999;      /* keep it above other content */
     }
 
-    /* If you prefer the sidebar fixed to the viewport, uncomment below and keep .content margin-right */
-    /*
-    .right-box {
-      position: fixed;
-      right: 20px;
-      top: 120px;
-      width: 300px;
-    }
-    .main-content { margin-right: 340px; }
+    /* If you prefer the sidebar to start below a fixed top nav, change top and height accordingly:
+       .right-box { top: 48px; height: calc(100vh - 48px); }
     */
 
     /* width */
@@ -148,6 +143,7 @@
     /* Mobile responsiveness */
     @media screen and (max-width: 800px) {
         .page { flex-direction: column; padding: 10px; }
+        /* on small screens the sidebar becomes part of the flow (not fixed) */
         .right-box, .main-content { width: 100%; flex: none; padding: 15px; position: relative; right: auto; top: auto; height: auto; }
 
         .main-content {
