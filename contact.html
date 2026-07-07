@@ -319,7 +319,7 @@
       <strong>Error!</strong> <span id="errorMessage"></span>
     </div>
 
-    <form id="contactForm" method="POST">
+    <form id="contactForm" method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
       <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -365,7 +365,7 @@
 <div class="container">
   <h2 style="text-align: center;">Our Location</h2>
   <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.658947486484!2d82.9996766!3d25.3176385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e5f5f5f5f5f5f%3A0x0!2sVaranasi[...]"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.6589474864847!2d82.99967659999999!3d25.317638500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e5f5e5e5e5e5f%3A0x9d9d9d9d9d9d9d9d!2sVariasi%20Travel%20Agency!5e0!3m2!1sen!2sin!4v1719389204206" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </div>
 
@@ -380,11 +380,6 @@
 
 <script>
   document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    
     // Show spinner and disable submit button
     document.getElementById('spinner').style.display = 'block';
     document.getElementById('submitBtn').disabled = true;
@@ -392,50 +387,6 @@
     // Hide previous alerts
     document.getElementById('successAlert').classList.remove('show');
     document.getElementById('errorAlert').classList.remove('show');
-    
-    // Send AJAX request
-    fetch('submit_form.php', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Hide spinner and enable submit button
-      document.getElementById('spinner').style.display = 'none';
-      document.getElementById('submitBtn').disabled = false;
-      
-      if (data.success) {
-        // Show success message
-        document.getElementById('successMessage').textContent = data.message;
-        document.getElementById('successAlert').classList.add('show');
-        
-        // Reset form
-        document.getElementById('contactForm').reset();
-        
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          document.getElementById('successAlert').classList.remove('show');
-        }, 5000);
-      } else {
-        // Show error message
-        let errorMsg = data.message;
-        if (data.errors && data.errors.length > 0) {
-          errorMsg = data.errors.join(', ');
-        }
-        document.getElementById('errorMessage').textContent = errorMsg;
-        document.getElementById('errorAlert').classList.add('show');
-      }
-    })
-    .catch(error => {
-      // Hide spinner and enable submit button
-      document.getElementById('spinner').style.display = 'none';
-      document.getElementById('submitBtn').disabled = false;
-      
-      // Show error message
-      document.getElementById('errorMessage').textContent = 'An error occurred. Please try again.';
-      document.getElementById('errorAlert').classList.add('show');
-      console.error('Error:', error);
-    });
   });
 </script>
 
