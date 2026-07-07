@@ -2,163 +2,319 @@
 <html lang="en">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="https:\\www.w3schools.com\w3css\5\w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     *{
         box-sizing:border-box;
     }
 
-
     body{
           background-color:rgba(153, 18, 18, 0.84);
+          font-family: Arial, sans-serif;
     }
 
+    /* Style inputs */
+    input[type=text], input[type=email], input[type=tel], select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+      border-radius: 4px;
+    }
 
+    input[type=submit], .btn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      display: inline-block;
+      margin: 5px;
+      text-decoration: none;
+    }
 
-/* Style inputs */
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
+    input[type=submit]:hover, .btn:hover {
+      background-color: #45a049;
+    }
 
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-}
+    /* Style the container/contact section */
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 1000px;
+    }
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
+    /* Contact info section */
+    .contact-info {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
 
-/* Style the container/contact section */
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 10px;
-}
+    .contact-info p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
 
-/* Create two columns that float next to eachother */
-.column {
-  float: left;
-  width: 50%;
-  margin-top: 6px;
-  padding: 20px;
-}
+    .contact-info a {
+      color: #04AA6D;
+      text-decoration: none;
+    }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
+    /* Form section */
+    .form-section {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
 
+    .form-group {
+      margin-bottom: 15px;
+    }
 
-     
-    .left {
-        padding:20px;
-        float:left;
-        width:20%; /* The width is 20%, by default */
-     }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
 
+    /* Quick contact buttons */
+    .quick-contact {
+      text-align: center;
+      margin: 20px 0;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+    }
 
-     main {
-        background-color:rgba(139, 14, 228, 0.84);
-        padding:20px;
-        float:left;
-        width:60%; /* The width is 60%, by default */
-     }
+    .quick-contact .btn {
+      background-color: #008CBA;
+      margin: 10px;
+    }
 
-     .right{
-        background-color:lightblue;
-        padding:20px;
-        float:left;
-        width:20%; /* The width is 20%, by default */
-     }
+    .quick-contact .btn:hover {
+      background-color: #007399;
+    }
 
-     @media screen and (max-width: 800px) {
-  .left, .main, .right {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-}
+    /* Social media links */
+    .social-links {
+      text-align: center;
+      margin: 20px 0;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+    }
+
+    .social-links a {
+      font-size: 30px;
+      margin: 0 15px;
+      color: #04AA6D;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      color: #45a049;
+    }
+
+    /* Office hours */
+    .office-hours {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .office-hours h3 {
+      color: #04AA6D;
+      margin-bottom: 15px;
+    }
+
+    .office-hours p {
+      margin: 8px 0;
+    }
+
+    /* Map section */
+    .map-container {
+      width: 100%;
+      margin: 20px auto;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+
+    /* Create two columns that float next to each other */
+    .column {
+      float: left;
+      width: 50%;
+      margin-top: 6px;
+      padding: 20px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout */
+    @media screen and (max-width: 600px) {
+      .column, input[type=submit], .btn {
+        width: 100%;
+        margin-top: 0;
+      }
+      
+      .map-container iframe {
+        height: 300px;
+      }
+      
+      .container {
+        margin: 10px;
+        padding: 10px;
+      }
+    }
+
     .banner{
         width:1024px;
     }
 
-  /* Main page content container */
-        .main-content {
-            margin-right: 220px; /* Prevents text from hiding behind the box */
-            padding: 20px;
-        }
+    /* Main page content container */
+    .main-content {
+        margin-right: 220px;
+        padding: 20px;
+    }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+     
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888; 
+    }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
 
 </style>
 
-<div id="home" class= "w3-container">
-<div class="w3-top w3-bar w3-black">
+<body>
+
+<div id="home" class="w3-container">
+  <div class="w3-top w3-bar w3-black">
     <a href="index.html" class="w3-bar-item w3-button">HOME</a>
-    </div>
-    </div>
-
-
-<div class="w3-panel w3-teal w3-padding-32">
-            <h1 style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">CONTACT US</h1>
+  </div>
 </div>
 
-<div class="hero-boxes-container">
-  <div class="hero-box">
-   <p>Address: k1/1, MACHODARI , VARANASI-221001</p><br>
+<div class="w3-panel w3-teal w3-padding-32">
+  <h1 style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">CONTACT US</h1>
+</div>
 
-   <em> Email:</em> <a href="mailto: info@vntravels.com">info@vntravels.com</a><br>
-   
-    <p>contact no: 09919468310</p> 
+<!-- Contact Information Section -->
+<div class="container">
+  <div class="contact-info">
+    <h2>Get In Touch</h2>
+    <p><strong>📍 Address:</strong> k1/1, MACHODARI, VARANASI-221001</p>
+    <p><strong>📧 Email:</strong> <a href="mailto:info@vntravels.com">info@vntravels.com</a></p>
+    <p><strong>📞 Contact Number:</strong> <a href="tel:09919468310">09919468310</a></p>
   </div>
-</div>  
+</div>
+
+<!-- Quick Contact Buttons -->
+<div class="quick-contact">
+  <h3>Quick Contact</h3>
+  <a href="tel:09919468310" class="btn">📞 Call Us</a>
+  <a href="mailto:info@vntravels.com" class="btn">✉️ Email Us</a>
+  <a href="https://wa.me/919919468310" class="btn" target="_blank">💬 WhatsApp</a>
+</div>
+
+<!-- Contact Form Section -->
+<div class="container">
+  <div class="form-section">
+    <h2>Send us a Message</h2>
+    <form action="submit_form.php" method="POST">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+
+      <input type="submit" value="Send Message">
+    </form>
+  </div>
+</div>
+
+<!-- Office Hours Section -->
+<div class="container">
+  <div class="office-hours">
+    <h3>Office Hours</h3>
+    <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM IST</p>
+    <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM IST</p>
+    <p><strong>Sunday:</strong> Closed</p>
+  </div>
+</div>
+
+<!-- Map Section -->
+<div class="container">
+  <h2 style="text-align: center;">Our Location</h2>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.658947486484!2d82.9996766!3d25.3176385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e5f5f5f5f5f5f%3A0x0!2sVaranasi!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div>
+
+<!-- Social Media Links -->
+<div class="social-links">
+  <h3>Follow Us</h3>
+  <a href="https://facebook.com" class="fa fa-facebook" target="_blank" title="Facebook"></a>
+  <a href="https://instagram.com" class="fa fa-instagram" target="_blank" title="Instagram"></a>
+  <a href="https://twitter.com" class="fa fa-twitter" target="_blank" title="Twitter"></a>
+  <a href="https://youtube.com" class="fa fa-youtube" target="_blank" title="YouTube"></a>
+</div>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
