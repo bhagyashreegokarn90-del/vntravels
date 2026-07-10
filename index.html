@@ -169,6 +169,161 @@
             width: 200px;
         }
     }
+   .hero {
+  position: relative;
+  background: url('travel.jpg') center/cover no-repeat;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* darkens the image */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.3em;
+  margin: 15px 0 30px 0;
+}
+
+.hero-btn {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.hero-btn:hover {
+  background-color: #ff5252;
+}
+
+.hero-boxes-container {
+  display: flex;
+  gap: 20px;
+  padding: 40px 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-box {
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.hero-box h3 {
+  padding: 15px;
+  margin: 0;
+  color: #333;
+}
+
+.hero-box p {
+  padding: 0 15px;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.box-btn {
+  display: inline-block;
+  margin: 15px;
+  background: #401d3d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.box-btn:hover {
+  background: #ff6b6b;
+}
+
+@media (max-width: 768px) {
+  .hero-boxes-container { flex-direction: column; }
+  .hero-box { width: 100%; }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #401d3d 0%, #667eea 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 40px;
+}
+
+.hero-gradient h2 {
+  font-size: 2.5em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.hero-gradient p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.cta-btn {
+  background: white;
+  color: #401d3d;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta-btn:hover {
+  background: #ff6b6b;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero { height: 300px; }
+  .hero-content h1 { font-size: 2em; }
+  .hero-content p { font-size: 1em; }
+}
 
     @media screen and (max-width: 480px) {
         body {
@@ -323,67 +478,6 @@
   </div>
 </section>
 
-<style>
-.hero {
-  position: relative;
-  background: url('travel.jpg') center/cover no-repeat;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
-  overflow: hidden;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* darkens the image */
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-content h1 {
-  font-size: 3em;
-  margin: 0;
-  font-weight: bold;
-}
-
-.hero-content p {
-  font-size: 1.3em;
-  margin: 15px 0 30px 0;
-}
-
-.hero-btn {
-  background-color: #ff6b6b;
-  color: white;
-  padding: 15px 40px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.hero-btn:hover {
-  background-color: #ff5252;
-}
-
-@media (max-width: 768px) {
-  .hero { height: 300px; }
-  .hero-content h1 { font-size: 2em; }
-  .hero-content p { font-size: 1em; }
-}
-</style>
-
 <div class="hero-boxes-container">
   <div class="hero-box">
     <img src="kashi.jpg" alt="varanasi">
@@ -427,112 +521,11 @@
     <p>The Historical city</p>
     <a href="contact.html" class="box-btn">Learn More</a>
   </div>
-
-<style>
-.hero-boxes-container {
-  display: flex;
-  gap: 20px;
-  padding: 40px 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.hero-box {
-  width: 300px;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.hero-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.hero-box img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.hero-box h3 {
-  padding: 15px;
-  margin: 0;
-  color: #333;
-}
-
-.hero-box p {
-  padding: 0 15px;
-  color: #666;
-  font-size: 0.9em;
-}
-
-.box-btn {
-  display: inline-block;
-  margin: 15px;
-  background: #401d3d;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-.box-btn:hover {
-  background: #ff6b6b;
-}
-
-@media (max-width: 768px) {
-  .hero-boxes-container { flex-direction: column; }
-  .hero-box { width: 100%; }
-}
-</style>
-
+    
 <section class="hero-gradient">
   <h2>Your Next Adventure Awaits</h2>
  <a href="destinations.html" class="box-btn">Learn More</a>
   <button class="cta-btn">Get Started</button>
 </section>
-
-<style>
-.hero-gradient {
-  background: linear-gradient(135deg, #401d3d 0%, #667eea 100%);
-  color: white;
-  padding: 80px 20px;
-  text-align: center;
-  border-radius: 10px;
-  margin: 40px;
-}
-
-.hero-gradient h2 {
-  font-size: 2.5em;
-  margin: 0;
-  margin-bottom: 10px;
-}
-
-.hero-gradient p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-}
-
-.cta-btn {
-  background: white;
-  color: #401d3d;
-  border: none;
-  padding: 15px 40px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.cta-btn:hover {
-  background: #ff6b6b;
-  color: white;
-}
-</style>
 </body>
 </html>
