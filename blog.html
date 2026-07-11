@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Cities Blog</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(180deg, rgba(64, 19, 61, 0.94), rgba(12, 4, 24, 0.96));
+            font-family: Arial, sans-serif;
+            color: #f7f4f3;
+            line-height: 1.65;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 28px 24px;
+            margin-bottom: 24px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero h1 {
+            margin: 0 0 12px;
+            font-size: 2.6rem;
+            letter-spacing: 0.08em;
+            color: #ffd37e;
+        }
+
+        .hero p {
+            margin: 0;
+            color: #ece5e2;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            padding: 22px;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            color: #ffeb9c;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            margin: 0;
+            color: #f3ecdf;
+        }
+
+        .card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .card blockquote {
+            margin: 0 0 0.8rem;
+            padding-left: 1rem;
+            border-left: 4px solid rgba(255, 235, 156, 0.7);
+            color: #fff2c8;
+        }
+
+        @media screen and (max-width: 680px) {
+            .page-wrapper {
+                padding: 16px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <section class="hero w3-card">
+            <h1>Holy Cities of India</h1>
+            <p>Explore the sacred cities</p>
+        </section>
+
+        <section class="section-grid">
+            <article class="card">
+                <img src="https://source.unsplash.com/800x600/?varanasi" alt="Varanasi ghats at sunrise" loading="lazy">
+                <h2>VARANASI</h2>
+                <p>Welcome to the city of lights! Varanasi is a holy city in India, known for its spiritual significance and beautiful ghats. It is one of the oldest continuously inhabited cities in the world. Also known as "Mokshanagari" according to sacred Hindu scriptures and mythology.</p>
+            </article>
+
+            <article class="card">
+                <img src="https://source.unsplash.com/800x600/?ayodhya" alt="Ayodhya temple at dusk" loading="lazy">
+                <h2>AYODHYA</h2>
+                <p>Ayodhya is a city in Uttar Pradesh known for its religious significance and historical importance. It is the birthplace of Lord Rama and is considered one of the seven most sacred cities in Hinduism. Ayodhya is also famous for its ancient temples, including the Ram Janmabhoomi temple.</p>
+            </article>
+
+            <article class="card">
+                <img src="https://source.unsplash.com/800x600/?gaya,bodhgaya" alt="Mahabodhi Temple in Gaya" loading="lazy">
+                <h2>GAYA</h2>
+                <p>Gaya is a city in Bihar known for its religious significance and historical importance. It is believed to be the place where Buddha attained enlightenment under the Bodhi tree. Gaya is also famous for the Mahabodhi Temple, a UNESCO World Heritage site.</p>
+            </article>
+
+            <article class="card">
+                <img src="https://source.unsplash.com/800x600/?haridwar,ganges" alt="Haridwar Ganges river ghats" loading="lazy">
+                <h2>HARIDWAR</h2>
+                <p>Haridwar is a city in Uttarakhand known for its religious significance and natural beauty. It is one of the seven sacred cities in Hinduism and is famous for the Ganges river ghats, holy ceremonies, and its spiritual atmosphere.</p>
+            </article>
+
+            <article class="card">
+                <img src="https://source.unsplash.com/800x600/?prayagraj,kumbh" alt="River confluence at Prayagraj" loading="lazy">
+                <h2>PRAYAGRAJ</h2>
+                <p>Prayagraj, formerly Allahabad, is a city in Uttar Pradesh known for its religious significance and historical importance. It is one of the four Kumbh Mela sites and is famous for the Triveni Sangam, the confluence of the Ganges, Yamuna, and Saraswati rivers.</p>
+            </article>
+
+            <article class="card">
+                <img src="https://source.unsplash.com/800x600/?mathura,temple" alt="Mathura temple entrance" loading="lazy">
+                <h2>MATHURA</h2>
+                <blockquote>Mathura is the birthplace of Lord Krishna and a sacred city with a rich cultural heritage.</blockquote>
+                <p>The city is home to numerous ancient temples and is a popular destination for pilgrims. It is famous for festivals like Janmashtami and its vibrant spiritual culture.</p>
+            </article>
+
+            <article class="card">
+                <img src="https://source.unsplash.com/800x600/?chitrakoot,nature" alt="Chitrakoot river and hills" loading="lazy">
+                <h2>CHITRAKOOT</h2>
+                <blockquote>Chitrakoot is believed to be the place where Lord Rama spent part of his exile.</blockquote>
+                <p>The town is known for its temples, natural beauty, and spiritual sites along the Mandakini River. It is a popular destination for pilgrims and tourists alike.</p>
+            </article>
+
+            <article class="card">
+                <img src="https://source.unsplash.com/800x600/?naimisharanya,forest" alt="Sacred forest path in Naimisharanya" loading="lazy">
+                <h2>NAIMISHARANYA</h2>
+                <blockquote>Naimisharanya is a sacred forest site with deep spiritual history.</blockquote>
+                <p>The site is known for its ancient temples and mythological importance. It is visited by devotees who come to experience its peaceful atmosphere and cultural heritage.</p>
+            </article>
+        </section>
+    </div>
+</body>
+</html>
+
+   
